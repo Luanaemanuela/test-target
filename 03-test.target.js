@@ -3,18 +3,10 @@
 // • O maior valor de faturamento ocorrido em um dia do mês;
 // • Número de dias no mês em que o valor de faturamento diário foi superior à média mensal.
 
-const faturamento = [
-    { dia: 1, valor: 200 },
-    { dia: 2, valor: 100 }, 
-    { dia: 3, valor: 120 },
-    { dia: 4, valor: 250 },
-    { dia: 5, valor: 100 },
-    { dia: 6, valor: 400 },
-    { dia: 7, valor: 0 }, // final de semana
-    { dia: 8, valor: 0 }, // final de semana
-    { dia: 9, valor: 150 },
-    { dia: 10, valor: 200 },
-  ];
+ const fs = require('fs');
+
+ const rawData = fs.readFileSync('dados.json');
+ const faturamento = JSON.parse(rawData);
   
   function calcularFaturamento(faturamento) {
     const diasComFaturamento = faturamento.filter(dia => dia.valor > 0);
